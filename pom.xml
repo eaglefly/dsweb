@@ -1,0 +1,25 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.dsweb</groupId>
+  <artifactId>dsweb</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <modules>
+    <module>dweb</module>
+    <module>dorm</module>
+    <module>dcommon</module>
+    <module>ttoa</module>
+  </modules>
+  <name>dsweb Maven Webapp</name>
+  <url>http://dsweb.ttoa.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencies>
+
+  </dependencies>
+  <build>
+    <finalName>dsweb</finalName>
+  </build>
+</project>

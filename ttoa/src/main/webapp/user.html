@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<title>jqPaginator</title>
+<script type="text/javascript" src="http://localhost:8080/ttoa/js/jquery.min.js"></script>
+<script type="text/javascript">
+
+(function($){  
+    $.fn.serializeJson=function(){  
+        var serializeObj={};  
+        var array=this.serializeArray();  
+        var str=this.serialize();  
+        $(array).each(function(){  
+            if(serializeObj[this.name]){  
+                if($.isArray(serializeObj[this.name])){  
+                    serializeObj[this.name].push(this.value);  
+                }else{  
+                    serializeObj[this.name]=[serializeObj[this.name],this.value];  
+                }  
+            }else{  
+                serializeObj[this.name]=this.value;   
+            }  
+        });  
+        return serializeObj;  
+    };  
+})(jQuery);  
+
+$(function(){
+	
+	 $("#btn").click(function(){
+		
+		 $.ajax({
+				type : "POST",
+				url : 'getU',
+				data : $("#form").serializeJson(),
+				//contentType: "application/x-www-form-urlencoded; charset=utf-8",
+				//dataType : "json",
+				dataType:"json",
+                contentType:"application/json;charset=utf-8",
+				success : function(data){
+					alert(data);
+				}
+	      });
+	 });
+});
+</script>
+</head>
+<body style="padding: 10px;">
+	<form id="form">
+		u1:<input type="text" name="user" value="a1"/>
+		   <input type="text" name="pass" value="b1"/>
+		   <input type="text" name="age" value="1"/>
+		<br/>
+		u2:<input type="text" name="user" value="a2"/>
+		   <input type="text" name="pass" value="b2"/>
+		   <input type="text" name="age" value="12"/>
+		  <br/> 
+		u3:<input type="text" name="user" value="a3"/>
+		   <input type="text" name="pass" value="b3"/>
+		   <input type="text" name="age" value="13"/>
+		   <br/>
+		   <input type="button" value="SUBMMIT" id="btn"/>
+	</form>
+</body>
+</html>

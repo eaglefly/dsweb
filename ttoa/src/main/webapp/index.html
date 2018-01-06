@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <title>jqPaginator</title>
+    <link type="text/css" rel="stylesheet" href="http://localhost:8080/ttoa/css/bootstrap.min.css"/>
+</head>
+<body style="padding:10px;">
+    <p id="p1"></p>
+    <ul class="pagination" id="pagination1"></ul>
+    <p id="p2"></p>
+    <ul class="pagination" id="pagination2"></ul>
+    <p id="demo4-text"></p>
+    <ul id="demo4" class="pagination pagination4"></ul>
+
+<script type="text/javascript" src="http://localhost:8080/ttoa/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://localhost:8080/ttoa/js/jqPaginator.js"></script>
+<script type="text/javascript">
+    $.jqPaginator('#pagination1', {
+        totalPages: 100,
+        visiblePages: 0,
+        currentPage: 3,
+        onPageChange: function (num, type) {
+            $('#p1').text(type + '：' + num);
+        }
+    });
+    $.jqPaginator('#pagination2', {
+        totalPages: 100,
+        visiblePages: 10,
+        currentPage: 3,
+        prev: '<li class="prev"><a href="javascript:;">Previous</a></li>',
+        next: '<li class="next"><a href="javascript:;">Next</a></li>',
+        page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+        onPageChange: function (num, type) {
+            $('#p2').text(type + '：' + num);
+        }
+    });
+
+       $("#demo4").jqPaginator({
+            totalPages: 100,
+            visiblePages: 1,
+            currentPage: 1,
+            prev: '<li class="prev"><a href="javascript:void(0);">Previous<\/a><\/li>',
+            next: '<li class="next"><a href="javascript:void(0);">Next<\/a><\/li>',
+            page: '<li class="page"><a href="javascript:void(0);"> {{page}} / {{totalPages}} <\/a><\/li>',
+            onPageChange: function (n) {
+                $("#demo4-text").html("当前第" + n + "页");
+            }
+        });
+
+</script>
+<br/>
+<#list mvlist as mv >
+${mv.id}|
+${mv.name}|
+${mv.xiong}<br/>
+</#list>
+${test}
+${tt}
+</body>
+</html>

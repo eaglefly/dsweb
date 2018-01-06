@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="dweb:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="dweb.war">
+      <element id="artifact" artifact-name="dweb:war exploded" />
+    </root>
+  </artifact>
+</component>
